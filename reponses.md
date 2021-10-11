@@ -1,13 +1,12 @@
 Question 1: 
 
-1 fonctionnelle, déterminisme et pure  car quelsque soit le
- string on o
+String :  fonctionnelle, déterminisme et pure
 
-Listadd c'est pas fonctionelle
-size fonctionnelle
-contains c'est pas fonctionnelle
-valueOf c'est pas fonctionnelle
-file::length c'est pas fonctionnelle
+Listadd : c'est pas fonctionelle
+size :  fonctionnelle
+contains :  c'est pas fonctionnelle
+valueOf :  c'est pas fonctionnelle
+file::length  : c'est pas fonctionnelle
 
 m1 : pas fonctionnelle
 m2: fonctionnelle
