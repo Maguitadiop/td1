@@ -1,23 +1,42 @@
 package td1;
 
-public class Paire {
-    private int x;
-    private int y;
-
-    public Paire(){
-        this.x=0;
-        this.y=0;
-    }
-    public Paire(int x, int y){
-        this.x = x;
-        this.y = y;
+public class Paire <T,S>{
+    public T fst;
+    public S snd;
+    
+    public Paire(T fst, S snd){
+        this.fst = fst;
+        this.snd = snd;
     }
 
-    public int fst(){
-        return this.x;
+    public T getFst(T fst){
+        return fst;
     }
-    public int snd(){
-        return this.y;
+    public S getSnd(S snd){
+        return snd;
     }
-   
+
+    public void setFst(T fst){
+        this.fst = fst;
+    }
+    public void setSnd(S snd){
+        this.snd = snd;
+    }
+
+    public Paire changeFst(K fst){
+        this.fst = fst;
+        return Paire(fst,snd);
+    }
+
+    public Paire changeSnd(U snd){
+        this.snd = snd;
+        return Paire(fst,snd);
+    }
+
+    public String toString(){
+        return "("+this.fst+","+this.snd+") :: Paire["+
+        this.fst.getClass().getSimpleName()+","+
+        this.snd.getClass().getSimpleName()+"]";
+    }
+
 }
