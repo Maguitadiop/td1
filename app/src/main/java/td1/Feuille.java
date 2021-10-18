@@ -29,20 +29,21 @@ import java.util.Set;
 */
 
 public class Feuille<T>implements Arbre<T>{
-
-    private T valeur;
-    private int valTaille;
-
+    private int valeur;
+    private T val;
+    public Feuille(final int valeur){
+        this.valeur = valeur;
+    }
     public int taille(){
-        return valTaille;
+        return valeur;
     }
 
     public boolean contient(T val){
-        return val.equals(valeur);
+        return val.equals(val);
     }
 
     public Set<T>valeurs(){
-        return Set.of(valeur);
+        return Set.of(val);
     }
 
 }

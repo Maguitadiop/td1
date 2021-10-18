@@ -9,7 +9,7 @@ import static org.junit.Assert.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
-
+/*
 import td1.arbres.*;
 
 public class AppTest {
@@ -106,5 +106,28 @@ public class AppTest {
         assertFalse(arbre2().estTrie());
         assertFalse(arbre3().estTrie());
     }
+
+}
+*/
+import td1.*;
+
+public class AppTest{
+
+    public static final Arbre arbre0() {
+        return new Noeud(new ArrayList<Arbre>());
+    }
+    public static final Arbre arbre1(){
+   
+        final Arbre<Integer> a1 = new<Integer> Feuille(2);
+        final Arbre<Integer> a2 = new<Integer> Feuille(1);
+        final Arbre<Integer> n1 = new <Integer> Noeud(List.of(a1,a2));
+        final Arbre<Integer> a3 = new<Integer> Feuille(4);
+        final Arbre<Integer> n2 = new<Integer> Noeud(List.of(n1,a3));
+
+        return n2;
+
+    }
+
+
 
 }
