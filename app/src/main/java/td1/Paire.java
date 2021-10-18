@@ -23,7 +23,7 @@ public class Paire <T,S>{
         this.snd = snd;
     }
 
-    public Paire changeFst(K fst){
+    public Paire changeFst(K,S){
         this.fst = fst;
         return Paire(fst,snd);
     }
