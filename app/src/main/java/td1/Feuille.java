@@ -1,6 +1,6 @@
 package td1;
 import java.util.Set;
-public class Feuille implements Arbre {
+/*public class Feuille implements Arbre {
     private int valeur;
 
     public int taille(){
@@ -25,4 +25,24 @@ public class Feuille implements Arbre {
     public boolean estTrie(){
         return true;
     }
+}
+*/
+
+public class Feuille<T>implements Arbre<T>{
+
+    private T valeur;
+    private int valTaille;
+
+    public int taille(){
+        return valTaille;
+    }
+
+    public boolean contient(T val){
+        return val.equals(valeur);
+    }
+
+    public Set<T>valeurs(){
+        return Set.of(valeur);
+    }
+
 }

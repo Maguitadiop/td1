@@ -1,8 +1,8 @@
 package td1;
-import java.util.HashSet;
+
 import java.util.List;
 import java.util.Set;
-public class Noeud implements Arbre{
+/*public class Noeud implements Arbre{
 
     private final List<Arbre> fils;
     
@@ -84,7 +84,7 @@ public class Noeud implements Arbre{
      * <li>&forall; i &in; 1..n, fi est trié</li>
      * <li>&forall; i &in; 1..n-1, max(fi)<= min(fi+1)</li>
      * </ol>
-     */
+     
     @Override
     public boolean estTrie() {
         return conditionTrie1() && conditionTrie2();
@@ -107,6 +107,41 @@ public class Noeud implements Arbre{
             final Arbre fj = fils.get(i+1);
                 if (fi.max() > fj.min())
                     return false;
+        }
+        return rtr;
+    }
+}*/
+
+public class Noeud<T> implements Arbre<T>{
+    private final List<Arbre> fils;
+    
+
+    public Noeud (final List<Arbre> fils){
+        this.fils = fils;
+    }
+
+    public int taille(){
+        int sr = 0;
+        for(final Arbre a : fils) {
+            sr += a.taille();
+        }
+        return sr;
+        
+    }
+
+    public boolean contient(final T val){
+        boolean rtr = false;
+        for(final Arbre a:fils){
+            if(a.contient(val)) return true;
+        }
+        return rtr;
+
+    } 
+
+    public Set<T> valeurs() {
+        Set<T> rtr = new HashSet<>();
+        for (final Arbre a : fils) {
+            rtr.addAll(a.valeurs());
         }
         return rtr;
     }

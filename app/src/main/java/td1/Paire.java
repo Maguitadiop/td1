@@ -23,7 +23,7 @@ public class Paire <T,S>{
         this.snd = snd;
     }
 
-    public Paire changeFst(K,S){
+   /* public Paire changeFst(K,S){
         this.fst = fst;
         return Paire(fst,snd);
     }
@@ -31,7 +31,7 @@ public class Paire <T,S>{
     public Paire changeSnd(U snd){
         this.snd = snd;
         return Paire(fst,snd);
-    }
+    }*/
 
     public String toString(){
         return "("+this.fst+","+this.snd+") :: Paire["+
