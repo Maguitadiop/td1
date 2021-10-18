@@ -118,15 +118,53 @@ public class AppTest{
     }
     public static final Arbre arbre1(){
    
-        final Arbre<Integer> a1 = new<Integer> Feuille(2);
-        final Arbre<Integer> a2 = new<Integer> Feuille(1);
-        final Arbre<Integer> n1 = new <Integer> Noeud(List.of(a1,a2));
-        final Arbre<Integer> a3 = new<Integer> Feuille(4);
-        final Arbre<Integer> n2 = new<Integer> Noeud(List.of(n1,a3));
+        final Arbre<Entier> a1 = new<Entier> Feuille(2);
+        final Arbre<Entier> a2 = new<Entier> Feuille(1);
+        final Arbre<Entier> n1 = new <Entier> Noeud(List.of(a1,a2));
+        final Arbre<Entier> a3 = new<Entier> Feuille(4);
+        final Arbre<Entier> n2 = new<Entier> Noeud(List.of(n1,a3));
 
         return n2;
-
     }
+
+
+   public static final Arbre arbre2(){
+        final Arbre<Chaine> s1 = new<Chaine> Feuillle("un");
+        final Arbre<Chaine> s2 = new<Chaine> Feuillle("deux");
+        final Arbre<Chaine> n3 = new <Chaine> Noeud(List.of(s1,s2));
+        final Arbre<Chaine> s3 = new<Chaine> Feuillle("trois");
+        final Arbre<Chaine> n4 = new<Chaine> Noeud(List.of(n3,s3));
+
+        return n4;
+   }
+
+    @Test public void testSize() {
+        assertEquals(0, arbre0().taille());
+        assertEquals(3, arbre1().taille());
+    }
+
+    @Test public void testContient() {
+        assertFalse(arbre0().contient(1));
+        assertFalse(arbre0().contient(2));
+        assertFalse(arbre0().contient(3));
+        
+        assertTrue(arbre1().contient(1));
+        assertTrue(arbre1().contient(2));
+        assertTrue(arbre1().contient(3));
+
+        assertTrue(arbre2().contient(1));
+        assertTrue(arbre2().contient(2));
+        assertTrue(arbre2().contient(3));
+    }
+
+    @Test public void testValeurs() {
+        final Set<Integer> contenu = Set.of(1,2,3);
+        assertEquals(Set.of(), arbre0().valeurs());
+        assertEquals(contenu, arbre1().valeurs());
+        assertEquals(contenu, arbre2().valeurs());
+    }
+
+
 
 
 

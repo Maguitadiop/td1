@@ -1,5 +1,5 @@
 package td1;
-
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 /*public class Noeud implements Arbre{
@@ -112,17 +112,17 @@ import java.util.Set;
     }
 }*/
 
-public class Noeud<T> implements Arbre<T>{
-    private final List<Arbre> fils;
+public class Noeud<T extends Sommable<T>> implements Arbre<T>{
+    private final List<Arbre<T>> fils;
     
 
-    public Noeud (final List<Arbre> fils){
+    public Noeud (final List<Arbre<T>> fils){
         this.fils = fils;
     }
 
     public int taille(){
         int sr = 0;
-        for(final Arbre a : fils) {
+        for(final Arbre<T> a : fils) {
             sr += a.taille();
         }
         return sr;
@@ -131,7 +131,7 @@ public class Noeud<T> implements Arbre<T>{
 
     public boolean contient(final T val){
         boolean rtr = false;
-        for(final Arbre a:fils){
+        for(final Arbre<T> a:fils){
             if(a.contient(val)) return true;
         }
         return rtr;
@@ -140,8 +140,20 @@ public class Noeud<T> implements Arbre<T>{
 
     public Set<T> valeurs() {
         Set<T> rtr = new HashSet<>();
-        for (final Arbre a : fils) {
+        for (final Arbre<T> a : fils) {
             rtr.addAll(a.valeurs());
+        }
+        return rtr;
+    }
+
+    public T somme(){
+        if (fils == null || fils.size() == 0)
+            return null;
+        else{
+            T rtr = fils.get(0).somme();
+            for (int i = 1; i<fils.size(); i++) {
+                rtr = sommer(fils.get(i).somme());
+            }
         }
         return rtr;
     }

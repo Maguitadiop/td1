@@ -11,9 +11,10 @@ import java.util.Set;
   //  boolean estTrie(); // vrai si l'arbre est trié, faux sinon
   }*/
 
-public interface Arbre<T>{
+public interface Arbre<T extends Sommable<T>>{
     int taille();
     boolean contient(T val);
     Set<T> valeurs();
+    T somme();
 }
   

@@ -25,14 +25,15 @@ import java.util.Set;
     public boolean estTrie(){
         return true;
     }
-}
+
 */
 
-public class Feuille<T>implements Arbre<T>{
+public class Feuille<T extends Sommable<T>>implements Arbre<T>{
     private int valeur;
     private T val;
-    public Feuille(final int valeur){
-        this.valeur = valeur;
+
+    public Feuille(final T val){
+        this.val = val;
     }
     public int taille(){
         return valeur;
@@ -44,6 +45,10 @@ public class Feuille<T>implements Arbre<T>{
 
     public Set<T>valeurs(){
         return Set.of(val);
+    }
+
+    public T somme(){
+        return val;
     }
 
 }
